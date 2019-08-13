@@ -7,7 +7,24 @@
   <title>whooo</title>
 </head>
 <body>
-  
+  <h1>Where is the ISS ?</h1>
+  <p>longitude: <span id="lon"></span></p>
+  <p>latitude: <span id="lat"></span></p>
+  <script>
+    const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
+    const lon = document.querySelector('#lon');
+    const lat = document.querySelector('#lat');
+    async function getISS(){
+      const response = await fetch(api_url);
+      const data = await response.json();
+      console.log(data);
+      const { longitude, latitude } = data;
+      console.log(longitude);
+      console.log(latitude);
+      lon.textContent = longitude;
+      lat.textContent = latitude;
+    };
+    getISS();
   </script>
 </body>
 </html>
