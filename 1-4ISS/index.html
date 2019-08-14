@@ -61,9 +61,12 @@
         firstTime = false;
       }
     };
-    getISS();
+    getISS()
+      .then(()=> {
+        setInterval(getISS,1500)
+      });
 
-    setInterval(getISS,1500)
+    
   </script>
 </body>
 </html>
